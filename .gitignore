@@ -1,3 +1,4 @@
+/.htaccess
 /administrator/cache/*
 /administrator/components/com_actionlogs/*
 /administrator/components/com_admin/*
