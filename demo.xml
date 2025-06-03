@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="jem" method="upgrade">
 	<name>plg_jem_demo</name>
-	<creationDate>Oct 2023</creationDate>
+	<creationDate>Mai 2025</creationDate>
 	<author>JEM Community</author>
 	<authorEmail>info@joomlaeventmanager.net</authorEmail>
-	<authorUrl>http://www.joomlaeventmanager.net</authorUrl>
-	<copyright>copyright (C) 2013-2023 joomlaeventmanager.net</copyright>
+	<authorUrl>https://www.joomlaeventmanager.net</authorUrl>
+	<copyright>copyright (C) 2013-2025 joomlaeventmanager.net</copyright>
 	<license>https://www.gnu.org/licenses/gpl-3.0 GNU/GPL</license>
-	<version>2.2.2-dev</version>
+	<version>2.2.3</version>
 	<description>PLG_JEM_DEMO_XML_DESCRIPTION</description>
 
 	<files>
 		<filename plugin="demo">demo.php</filename>
 		<filename>.htaccess</filename>
-
 		<folder>language</folder>
 		<folder>data</folder>
 	</files>
@@ -26,7 +25,6 @@
 					default="0"
 					description="PLG_JEM_DEMO_RESET_DESC"
 					class="btn-group btn-group-yesno"
-				>
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
