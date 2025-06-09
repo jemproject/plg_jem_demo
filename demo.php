@@ -1,13 +1,19 @@
 <?php
 /**
- * @version 2.1.2
+ * @version 4.2.2
  * @package JEM
  * @subpackage JEM Demo Plugin
- * @copyright (C) 2013-2015 joomlaeventmanager.net
+ * @copyright (C) 2013-2024 joomlaeventmanager.net
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
 
 defined('_JEXEC') or die;
+
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Filesystem\Folder;
+use Joomla\CMS\Filesystem\File;
 
 // Import library dependencies
 jimport('joomla.plugin.plugin');
@@ -16,7 +22,7 @@ jimport('joomla.filesystem.folder');
 
 include_once(JPATH_SITE.'/components/com_jem/helpers/helper.php');
 
-class plgJemDemo extends JPlugin {
+class plgJemDemo extends CMSPlugin {
 
 	protected $_datapath = '';
 	protected $_db = null;
@@ -34,7 +40,7 @@ class plgJemDemo extends JPlugin {
 		$this->loadLanguage();
 
 		$this->_datapath = __DIR__.'/data/';
-		$this->_db = JFactory::getDBO();
+		$this->_db = Factory::getDBO();
 	}
 
 
@@ -88,17 +94,17 @@ class plgJemDemo extends JPlugin {
 		JemHelper::delete_unused_attachment_files();
 
 		// copy images
-		$sourcePath = JPath::clean(__DIR__ . '/data');
-		$imagePath  = JPath::clean(JPATH_SITE.'/images/jem');
-		$mediaPath  = JPath::clean(JPATH_SITE.'/media/com_jem');
+		$sourcePath = Path::clean(__DIR__ . '/data');
+		$imagePath  = Path::clean(JPATH_SITE.'/images/jem');
+		$mediaPath  = Path::clean(JPATH_SITE.'/media/com_jem');
 		$subdirs = array('/categories', '/events', '/venues');
 		foreach ($subdirs as $subdir) {
-			$fileList = JFolder::files($sourcePath.$subdir);
+			$fileList = Folder::files($sourcePath.$subdir);
 			if ($fileList !== false) {
 				foreach ($fileList as $file)
 				{
 					if (is_file($sourcePath.$subdir.'/'.$file) && substr($file, 0, 1) != '.') {
-						JFile::copy($sourcePath.$subdir.'/'.$file, $imagePath.$subdir.'/'.$file);
+						File::copy($sourcePath.$subdir.'/'.$file, $imagePath.$subdir.'/'.$file);
 					}
 				}
 			}
@@ -106,7 +112,7 @@ class plgJemDemo extends JPlugin {
 
 		// copy attachments
 		$subdir = '/attachments';
-		JFolder::copy($sourcePath.$subdir, $mediaPath.$subdir, '', true);
+		Folder::copy($sourcePath.$subdir, $mediaPath.$subdir, '', true);
 
 		// execute sql file to create demo data
 		$queries = $this->readSqlQueries('demo.sql');
