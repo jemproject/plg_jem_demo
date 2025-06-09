@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="jem" method="upgrade">
 	<name>plg_jem_demo</name>
-	<creationDate>Mai 2024</creationDate>
+	<creationDate>June 2025</creationDate>
 	<author>JEM Community</author>
 	<authorEmail>info@joomlaeventmanager.net</authorEmail>
 	<authorUrl>http://www.joomlaeventmanager.net</authorUrl>
-	<copyright>copyright (C) 2013-2024 joomlaeventmanager.net</copyright>
+	<copyright>copyright (C) 2013-2025 joomlaeventmanager.net</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<version>4.2.2</version>
 	<description>PLG_JEM_DEMO_XML_DESCRIPTION</description>
